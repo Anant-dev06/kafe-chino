@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Brew & Bite Café</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+            <span>☕</span> Brew & Bite
+        </div>
+
+        <nav id="navbar">
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#about">About</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="cart-btn" onclick="openCart()">
+            🛒 Cart <span id="cart-count">0</span>
+        </button>
+
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="small-title">WELCOME TO BREW & BITE</p>
+
+            <h1>
+                Fresh Coffee.<br>
+                Delicious Food.<br>
+                <span>Good Moments.</span>
+            </h1>
+
+            <p>
+                Your cozy neighborhood café for freshly brewed coffee,
+                delicious food and unforgettable moments.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#menu" class="primary-btn">Explore Menu</a>
+                <a href="#about" class="secondary-btn">Our Story</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="features">
+
+        <div class="feature">
+            <div class="feature-icon">☕</div>
+            <h3>Fresh Coffee</h3>
+            <p>Freshly brewed with premium beans.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🥐</div>
+            <h3>Fresh Food</h3>
+            <p>Prepared fresh every single day.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🌱</div>
+            <h3>Quality Ingredients</h3>
+            <p>Only carefully selected ingredients.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">❤️</div>
+            <h3>Made With Love</h3>
+            <p>Because every cup deserves care.</p>
+        </div>
+
+    </section>
+
+
+    <!-- ================= MENU ================= -->
+
+    <section class="menu-section" id="menu">
+
+        <div class="section-heading">
+
+            <p>OUR MENU</p>
+
+            <h2>Something Delicious<br>
+                <span>For Everyone</span>
+            </h2>
+
+            <p class="description">
+                From your morning coffee to a relaxing dinner,
+                we've got something you'll love.
+            </p>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="menu-search">
+
+            <input type="text" id="search" placeholder="Search food or drinks..." onkeyup="searchMenu()">
+
+        </div>
+
+
+        <!-- CATEGORY BUTTONS -->
+
+        <div class="categories">
+
+            <button class="category active" onclick="filterMenu('all', this)">
+                All
+            </button>
+
+            <button class="category" onclick="filterMenu('breakfast', this)">
+                Breakfast
+            </button>
+
+            <button class="category" onclick="filterMenu('snacks', this)">
+                Snacks
+            </button>
+
+            <button class="category" onclick="filterMenu('main', this)">
+                Main Course
+            </button>
+
+            <button class="category" onclick="filterMenu('dessert', this)">
+                Desserts
+            </button>
+
+            <button class="category" onclick="filterMenu('hot', this)">
+                Hot Drinks
+            </button>
+
+            <button class="category" onclick="filterMenu('cold', this)">
+                Cold Drinks
+            </button>
+
+        </div>
+
+
+        <!-- MENU GRID -->
+
+        <div class="menu-grid" id="menu-grid">
+
+            <!-- BREAKFAST -->
+
+            <div class="food-card" data-category="breakfast">
+
+                <div class="food-image">🍳</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Breakfast</span>
+
+                    <h3>Classic Breakfast</h3>
+
+                    <p>
+                        Eggs, toast, grilled tomatoes and fresh greens.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹249</strong>
+
+                        <button onclick="addToCart('Classic Breakfast',249)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="breakfast">
+
+                <div class="food-image">🥞</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Breakfast</span>
+
+                    <h3>Blueberry Pancakes</h3>
+
+                    <p>
+                        Fluffy pancakes with blueberries and maple syrup.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹199</strong>
+
+                        <button onclick="addToCart('Blueberry Pancakes',199)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="breakfast">
+
+                <div class="food-image">🥑</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Healthy</span>
+
+                    <h3>Avocado Toast</h3>
+
+                    <p>
+                        Toasted sourdough with creamy avocado and herbs.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹229</strong>
+
+                        <button onclick="addToCart('Avocado Toast',229)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="breakfast">
+
+                <div class="food-image">🥣</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Healthy</span>
+
+                    <h3>Granola Bowl</h3>
+
+                    <p>
+                        Yogurt, granola, berries and honey.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹219</strong>
+
+                        <button onclick="addToCart('Granola Bowl',219)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SNACKS -->
+
+            <div class="food-card" data-category="snacks">
+
+                <div class="food-image">🥪</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Popular</span>
+
+                    <h3>Veg Sandwich</h3>
+
+                    <p>
+                        Fresh vegetables, cheese and special café sauce.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹159</strong>
+
+                        <button onclick="addToCart('Veg Sandwich',159)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="snacks">
+
+                <div class="food-image">🍟</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Snack</span>
+
+                    <h3>Crispy French Fries</h3>
+
+                    <p>
+                        Golden crispy fries served with dip.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹129</strong>
+
+                        <button onclick="addToCart('French Fries',129)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="snacks">
+
+                <div class="food-image">🌮</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Snack</span>
+
+                    <h3>Veg Tacos</h3>
+
+                    <p>
+                        Crunchy tacos filled with vegetables and salsa.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹189</strong>
+
+                        <button onclick="addToCart('Veg Tacos',189)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="snacks">
+
+                <div class="food-image">🧀</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Cheesy</span>
+
+                    <h3>Cheese Garlic Bread</h3>
+
+                    <p>
+                        Toasted garlic bread loaded with melted cheese.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹179</strong>
+
+                        <button onclick="addToCart('Cheese Garlic Bread',179)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MAIN COURSE -->
+
+            <div class="food-card" data-category="main">
+
+                <div class="food-image">🍕</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Popular</span>
+
+                    <h3>Margherita Pizza</h3>
+
+                    <p>
+                        Classic pizza with tomato, mozzarella and basil.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹299</strong>
+
+                        <button onclick="addToCart('Margherita Pizza',299)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="main">
+
+                <div class="food-image">🍝</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Italian</span>
+
+                    <h3>Creamy Pasta</h3>
+
+                    <p>
+                        Penne pasta in a creamy garlic sauce.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹279</strong>
+
+                        <button onclick="addToCart('Creamy Pasta',279)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="main">
+
+                <div class="food-image">🍔</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Bestseller</span>
+
+                    <h3>Café Burger</h3>
+
+                    <p>
+                        Crispy veggie patty, cheese, lettuce and sauce.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹249</strong>
+
+                        <button onclick="addToCart('Cafe Burger',249)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="main">
+
+                <div class="food-image">🍜</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Asian</span>
+
+                    <h3>Veg Noodles</h3>
+
+                    <p>
+                        Stir-fried noodles with fresh vegetables.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹229</strong>
+
+                        <button onclick="addToCart('Veg Noodles',229)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DESSERTS -->
+
+            <div class="food-card" data-category="dessert">
+
+                <div class="food-image">🍰</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Sweet</span>
+
+                    <h3>Chocolate Cake</h3>
+
+                    <p>
+                        Rich chocolate cake with chocolate frosting.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹179</strong>
+
+                        <button onclick="addToCart('Chocolate Cake',179)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="dessert">
+
+                <div class="food-image">🍨</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Cold</span>
+
+                    <h3>Ice Cream Sundae</h3>
+
+                    <p>
+                        Vanilla ice cream, chocolate sauce and nuts.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹159</strong>
+
+                        <button onclick="addToCart('Ice Cream Sundae',159)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="dessert">
+
+                <div class="food-image">🍪</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Fresh</span>
+
+                    <h3>Chocolate Cookies</h3>
+
+                    <p>
+                        Freshly baked cookies with chocolate chips.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹99</strong>
+
+                        <button onclick="addToCart('Chocolate Cookies',99)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="dessert">
+
+                <div class="food-image">🧁</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Sweet</span>
+
+                    <h3>Vanilla Cupcake</h3>
+
+                    <p>
+                        Soft vanilla cupcake with creamy frosting.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹119</strong>
+
+                        <button onclick="addToCart('Vanilla Cupcake',119)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HOT DRINKS -->
+
+            <div class="food-card" data-category="hot">
+
+                <div class="food-image">☕</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Hot</span>
+
+                    <h3>Espresso</h3>
+
+                    <p>
+                        Strong and aromatic freshly brewed espresso.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹99</strong>
+
+                        <button onclick="addToCart('Espresso',99)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="hot">
+
+                <div class="food-image">🥛</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Popular</span>
+
+                    <h3>Cappuccino</h3>
+
+                    <p>
+                        Espresso with steamed milk and creamy foam.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹149</strong>
+
+                        <button onclick="addToCart('Cappuccino',149)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="hot">
+
+                <div class="food-image">☕</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Coffee</span>
+
+                    <h3>Café Latte</h3>
+
+                    <p>
+                        Smooth espresso blended with steamed milk.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹159</strong>
+
+                        <button onclick="addToCart('Cafe Latte',159)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="hot">
+
+                <div class="food-image">🍵</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Tea</span>
+
+                    <h3>Masala Chai</h3>
+
+                    <p>
+                        Indian tea brewed with aromatic spices.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹79</strong>
+
+                        <button onclick="addToCart('Masala Chai',79)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="hot">
+
+                <div class="food-image">🍫</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Chocolate</span>
+
+                    <h3>Hot Chocolate</h3>
+
+                    <p>
+                        Warm creamy chocolate topped with foam.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹169</strong>
+
+                        <button onclick="addToCart('Hot Chocolate',169)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- COLD DRINKS -->
+
+            <div class="food-card" data-category="cold">
+
+                <div class="food-image">🧊</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Cold</span>
+
+                    <h3>Iced Coffee</h3>
+
+                    <p>
+                        Chilled coffee blended with milk and ice.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹169</strong>
+
+                        <button onclick="addToCart('Iced Coffee',169)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="cold">
+
+                <div class="food-image">🥤</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Popular</span>
+
+                    <h3>Cold Chocolate</h3>
+
+                    <p>
+                        Chilled chocolate drink topped with cream.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹179</strong>
+
+                        <button onclick="addToCart('Cold Chocolate',179)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="cold">
+
+                <div class="food-image">🍓</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Fresh</span>
+
+                    <h3>Strawberry Shake</h3>
+
+                    <p>
+                        Fresh strawberries blended with creamy milk.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹199</strong>
+
+                        <button onclick="addToCart('Strawberry Shake',199)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="food-card" data-category="cold">
+
+                <div class="food-image">🥭</div>
+
+                <div class="food-info">
+
+                    <span class="tag">Seasonal</span>
+
+                    <h3>Mango Smoothie</h3>
+
+                    <p>
+                        Fresh mango blended into a refreshing smoothie.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹189</strong>
+
+                        <button onclick="addToCart('Mango Smoothie',189)">
+                            Add +
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+        <div class="about-image">
+            ☕
+        </div>
+
+        <div class="about-content">
+
+            <p class="small-title">OUR STORY</p>
+
+            <h2>
+                More Than Just<br>
+                <span>A Café</span>
+            </h2>
+
+            <p>
+                Brew & Bite started with one simple idea:
+                create a place where great coffee, delicious food
+                and good conversations come together.
+            </p>
+
+            <p>
+                Every item on our menu is prepared with fresh
+                ingredients and a lot of love.
+            </p>
+
+            <button class="primary-btn">
+                Visit Us
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= REVIEWS ================= -->
+
+    <section class="reviews" id="reviews">
+
+        <div class="section-heading">
+
+            <p>WHAT PEOPLE SAY</p>
+
+            <h2>
+                Loved By Our <span>Customers</span>
+            </h2>
+
+        </div>
+
+        <div class="review-grid">
+
+            <div class="review">
+
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    "The coffee is amazing and the atmosphere
+                    is perfect for working or relaxing."
+                </p>
+
+                <h4>— Rahul</h4>
+
+            </div>
+
+
+            <div class="review">
+
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    "The pasta and chocolate cake are absolutely
+                    delicious. Definitely coming back!"
+                </p>
+
+                <h4>— Priya</h4>
+
+            </div>
+
+
+            <div class="review">
+
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    "One of my favorite cafés. Great food,
+                    friendly staff and beautiful ambience."
+                </p>
+
+                <h4>— Arjun</h4>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact" id="contact">
+
+        <div>
+
+            <p class="small-title">COME SAY HELLO</p>
+
+            <h2>
+                Let's Have<br>
+                <span>A Coffee</span>
+            </h2>
+
+            <p>
+                📍 123 Coffee Street, New Delhi, India
+            </p>
+
+            <p>
+                📞 +91 98765 43210
+            </p>
+
+            <p>
+                ✉ hello@brewandbite.com
+            </p>
+
+        </div>
+
+
+        <form onsubmit="submitForm(event)">
+
+            <input type="text" placeholder="Your Name" required>
+
+            <input type="email" placeholder="Your Email" required>
+
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+
+            <button class="primary-btn">
+                Send Message
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            ☕ Brew & Bite
+        </div>
+
+        <p>
+            Good coffee. Good food. Good moments.
+        </p>
+
+        <div class="socials">
+            Instagram &nbsp; | &nbsp;
+            Facebook &nbsp; | &nbsp;
+            Twitter
+        </div>
+
+        <p class="copyright">
+            © 2026 Brew & Bite Café. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= CART SIDEBAR ================= -->
+
+    <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+
+        <div class="cart-header">
+
+            <h2>Your Cart</h2>
+
+            <button onclick="closeCart()">✕</button>
+
+        </div>
+
+        <div id="cart-items">
+
+            <p class="empty-cart">
+                Your cart is empty.
+            </p>
+
+        </div>
+
+        <div class="cart-footer">
+
+            <div class="total">
+                <span>Total</span>
+                <strong>₹<span id="cart-total">0</span></strong>
+            </div>
+
+            <button class="checkout-btn" onclick="checkout()">
+                Checkout
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
