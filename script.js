@@ -1,4 +1,4 @@
-/* ================= CART ================= */
+/* CART */
 
 let cart = [];
 
@@ -302,7 +302,7 @@ function submitForm(event) {
     event.preventDefault();
 
     alert(
-        "Thank you for contacting Brew & Bite! ❤️"
+        "Thank you for contacting Kafe-chino! ❤️"
     );
 
     event.target.reset();
