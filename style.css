@@ -389,6 +389,9 @@ nav a:hover {
 }
 
 .food-card {
+    display: flex;
+    flex-wrap: wrap;
+    height: 48dvh;
     background: white;
 
     border-radius: 18px;
@@ -411,9 +414,10 @@ nav a:hover {
 }
 
 .food-image {
-    height: 180px;
 
     display: flex;
+    height: 45%;
+    width: 100%;
 
     align-items: center;
     justify-content: center;
@@ -424,6 +428,13 @@ nav a:hover {
         linear-gradient(135deg,
             #f5dfca,
             #ead1bb);
+}
+
+.food-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .food-info {
