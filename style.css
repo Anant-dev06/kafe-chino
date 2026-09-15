@@ -863,50 +863,79 @@ footer {
 }
 
 
-/* ================= RESPONSIVE ================= */
-
-@media(max-width: 1100px) {
-
-    .menu-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+/* ============================================================
+   RESPONSIVE — TABLET (max-width: 1024px)
+   ============================================================ */
+@media (max-width: 1024px) {
 
     .features {
         grid-template-columns: repeat(2, 1fr);
+        padding: 50px 6%;
     }
 
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .review-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-content {
+        padding: 50px;
+    }
+
+    .about-content h2,
+    .contact h2 {
+        font-size: 40px;
+    }
+
+    .contact {
+        gap: 40px;
+        padding: 80px 6%;
+    }
 }
 
 
-@media(max-width: 800px) {
+/* ============================================================
+   RESPONSIVE — MOBILE (max-width: 768px)
+   ============================================================ */
+@media (max-width: 768px) {
 
-    nav {
-        display: none;
-
-        position: absolute;
-
-        top: 75px;
-        left: 0;
-
-        width: 100%;
-
-        background: white;
-
-        flex-direction: column;
-
-        gap: 0;
-
-        border-bottom: 1px solid #eee;
+    /* ---- Header / nav collapses to a toggle-driven dropdown ---- */
+    .header {
+        padding: 0 5%;
     }
 
-    nav.show {
-        display: flex;
+    .logo {
+        font-size: 20px;
+    }
+
+    nav {
+        position: fixed;
+        top: 75px;
+        left: 0;
+        right: 0;
+
+        flex-direction: column;
+        gap: 0;
+
+        background: #fffaf5;
+        border-bottom: 1px solid #eaded3;
+
+        max-height: 0;
+        overflow: hidden;
+
+        transition: max-height .35s ease;
+    }
+
+    nav.nav-open {
+        max-height: 320px;
     }
 
     nav a {
-        padding: 15px 7%;
-
-        border-bottom: 1px solid #eee;
+        padding: 16px 7%;
+        border-top: 1px solid #eaded3;
     }
 
     .menu-toggle {
@@ -914,85 +943,166 @@ footer {
     }
 
     .cart-btn {
-        margin-left: auto;
-        margin-right: 15px;
+        padding: 9px 14px;
+        font-size: 14px;
+    }
+
+    /* ---- Hero ---- */
+    .hero {
+        min-height: 520px;
+        padding: 60px 6%;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding: 18px;
+    }
+
+    .hero-content>p {
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        flex-wrap: wrap;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    /* ---- Features ---- */
+    .features {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 45px 8%;
+    }
+
+    /* ---- Menu ---- */
+    .menu-section {
+        padding: 60px 6%;
+    }
+
+    .section-heading h2 {
+        font-size: 34px;
     }
 
     .menu-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .about,
-    .contact {
         grid-template-columns: 1fr;
     }
 
+    .categories {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .category {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+
+    /* ---- About ---- */
+    .about {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
     .about-image {
-        min-height: 350px;
+        height: 280px;
+        font-size: 110px;
     }
 
     .about-content {
-        padding: 60px 8%;
+        padding: 45px 8%;
+    }
+
+    .about-content h2,
+    .contact h2 {
+        font-size: 32px;
+    }
+
+    /* ---- Reviews ---- */
+    .reviews {
+        padding: 60px 6%;
     }
 
     .review-grid {
         grid-template-columns: 1fr;
     }
 
-}
-
-
-@media(max-width: 550px) {
-
-    .header {
-        padding: 0 5%;
-    }
-
-    .logo {
-        font-size: 19px;
-    }
-
-    .cart-btn {
-        padding: 8px 12px;
-    }
-
-    .hero {
-        min-height: 30dvh;
-
+    /* ---- Contact ---- */
+    .contact {
+        grid-template-columns: 1fr;
+        gap: 35px;
         padding: 60px 7%;
     }
 
+    /* ---- Footer ---- */
+    footer {
+        padding: 40px 20px;
+    }
+
+    /* ---- Cart sidebar ---- */
+    .cart-sidebar {
+        width: 100%;
+        max-width: 100%;
+        right: -100%;
+    }
+}
+
+
+/* ============================================================
+   RESPONSIVE — SMALL MOBILE (max-width: 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+
     .hero h1 {
-        font-size: 45px;
+        font-size: clamp(32px, 9vw, 45px);
     }
 
-    .features {
-        grid-template-columns: 1fr;
+    .small-title {
+        font-size: 11px;
+        letter-spacing: 2px;
     }
 
-    .menu-section,
-    .reviews {
-        padding: 70px 5%;
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .feature-icon {
+        font-size: 30px;
     }
 
     .section-heading h2 {
-        font-size: 38px;
-    }
-
-    .menu-grid {
-        grid-template-columns: 1fr;
+        font-size: 28px;
     }
 
     .food-image {
+        height: 150px;
+        font-size: 55px;
+    }
+
+    .about-image {
         height: 200px;
+        font-size: 80px;
     }
 
+    .about-content,
     .contact {
-        padding: 70px 7%;
+        padding-left: 6%;
+        padding-right: 6%;
     }
 
-    .contact h2 {
-        font-size: 40px;
+    .review-grid {
+        gap: 15px;
     }
 
+    .cart-header,
+    .cart-footer {
+        padding: 18px;
+    }
 }
