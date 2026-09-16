@@ -531,7 +531,7 @@ nav a:hover {
     background:
         linear-gradient(rgba(40, 25, 17, .3),
             rgba(40, 25, 17, .3)),
-        url("https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=80");
+        url("Resources/cafe-image.jpg");
 
     background-size: cover;
     background-position: center;
