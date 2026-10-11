@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kafe-chino — Admin Panel</title>
+    <script>
+        if (localStorage.getItem("kc_admin_auth") !== "true") {
+            window.location.href = "index.html";
+        }
+    </script>
     <link rel="stylesheet" href="admin.css">
 </head>
 
@@ -25,7 +30,9 @@
                 <a href="#" class="nav-item" data-page="menu">📋 Menu Items</a>
             </nav>
 
-            <a href="index.html" class="back-link">← Back to site</a>
+            <a href="#" class="back-link"
+                onclick="localStorage.removeItem('kc_admin_auth'); window.location.href='index.html';">⎋
+                Logout</a>
         </aside>
 
         <div class="overlay" id="overlay"></div>

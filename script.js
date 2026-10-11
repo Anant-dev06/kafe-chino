@@ -305,3 +305,60 @@ window.addEventListener("storage", (e) => {
         renderExtraMenuItems();
     }
 });
+
+
+// user view control
+/* ================= ADMIN AUTH ================= */
+
+const ADMIN_USERNAME = "admin";
+const ADMIN_PASSWORD = "kafechino2026"; // ⚠️ change this to your own
+const AUTH_KEY = "kc_admin_auth";
+
+function checkAuthUI() {
+    const isLoggedIn = localStorage.getItem(AUTH_KEY) === "true";
+    document.getElementById("adminLink").style.display = isLoggedIn ? "inline-block" : "none";
+    document.getElementById("loginLink").style.display = isLoggedIn ? "none" : "inline-block";
+    document.getElementById("logoutLink").style.display = isLoggedIn ? "inline-block" : "none";
+}
+
+function openLogin(event) {
+    event.preventDefault();
+    document.getElementById("login-overlay").classList.add("show");
+    document.getElementById("login-box").classList.add("open");
+}
+
+function closeLogin() {
+    document.getElementById("login-overlay").classList.remove("show");
+    document.getElementById("login-box").classList.remove("open");
+    document.getElementById("loginError").hidden = true;
+    document.getElementById("loginForm").reset();
+}
+
+function loginUser(event) {
+    event.preventDefault();
+
+    const username = document.getElementById("loginUsername").value.trim();
+    const password = document.getElementById("loginPassword").value;
+
+    if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+        localStorage.setItem(AUTH_KEY, "true");
+        checkAuthUI();
+        closeLogin();
+        alert("Welcome back! You now have access to the Admin panel.");
+    } else {
+        document.getElementById("loginError").hidden = false;
+    }
+}
+
+function logoutUser(event) {
+    event.preventDefault();
+    localStorage.removeItem(AUTH_KEY);
+    checkAuthUI();
+    alert("You have been logged out.");
+}
+
+// 
+document.addEventListener("DOMContentLoaded", () => {
+    renderExtraMenuItems();
+    checkAuthUI();
+});
