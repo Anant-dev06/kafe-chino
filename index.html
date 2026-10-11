@@ -13,6 +13,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
         rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -31,6 +32,7 @@
             <a href="#about">About</a>
             <a href="#reviews">Reviews</a>
             <a href="#contact">Contact</a>
+            <a href="admin.html">admin</a>
         </nav>
 
         <button class="cart-btn" onclick="openCart()">
@@ -45,10 +47,11 @@
     <!-- ================= HERO ================= -->
 
     <section class="hero" id="home">
-        <video class="hero-video" autoplay muted loop playsinline>
+        <!-- <video class="hero-video" autoplay muted loop playsinline>
             <source src="Resources/hero-video.mp4" type="video/mp4">
             Your browser does not support the video tag.
-        </video>
+        </video> -->
+        <img class="hero-video" src="Resources/cafe-image.jpg">
 
         <div class="hero-content">
 
@@ -1032,7 +1035,7 @@
             </p>
 
             <p>
-                📞 +91 98765 43210
+                📞 +91 92594 XXXXX
             </p>
 
             <p>
@@ -1042,13 +1045,11 @@
         </div>
 
 
-        <form onsubmit="submitForm(event)">
+        <form id="contactForm" onsubmit="submitForm(event)">
 
-            <input type="text" placeholder="Your Name" required>
+            <input type="text" name="name" placeholder="Your Name" required>
 
-            <input type="email" placeholder="Your Email" required>
-
-            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <textarea rows="5" name="message" placeholder="Your Message" required></textarea>
 
             <button class="primary-btn">
                 Send Message

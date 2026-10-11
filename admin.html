@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kafe-chino — Admin Panel</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="sidebar" id="sidebar">
+            <div class="logo-row">
+                <span class="logo-mark">🍵</span>
+                <span class="logo-text">Kafe-chino Admin</span>
+            </div>
+
+            <nav class="side-nav">
+                <a href="#" class="nav-item active" data-page="dashboard">📊 Dashboard</a>
+                <a href="#" class="nav-item" data-page="orders">🧾 Orders</a>
+                <a href="#" class="nav-item" data-page="menu">📋 Menu Items</a>
+            </nav>
+
+            <a href="index.html" class="back-link">← Back to site</a>
+        </aside>
+
+        <div class="overlay" id="overlay"></div>
+
+        <!-- ===== MAIN ===== -->
+        <main class="main">
+
+            <header class="topbar">
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <div>
+                    <p class="eyebrow">Kafe-chino</p>
+                    <h1 id="pageTitle">Dashboard</h1>
+                </div>
+                <div class="live-indicator">
+                    <span class="dot"></span> Live
+                </div>
+            </header>
+
+            <!-- ===== DASHBOARD PAGE ===== -->
+            <section class="page active" id="page-dashboard">
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon orange">🧾</div>
+                        <p class="stat-value" id="statTotalOrders">0</p>
+                        <p class="stat-title">Total Orders</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">₹</div>
+                        <p class="stat-value" id="statRevenue">₹0</p>
+                        <p class="stat-title">Total Revenue</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue">⏳</div>
+                        <p class="stat-value" id="statPending">0</p>
+                        <p class="stat-title">Pending Orders</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple">📋</div>
+                        <p class="stat-value" id="statMenuCount">0</p>
+                        <p class="stat-title">Menu Items</p>
+                    </div>
+                </div>
+
+                <div class="content-layout">
+                    <div class="card main-card">
+                        <div class="card-header">
+                            <h2>Recent Orders</h2>
+                        </div>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Order</th>
+                                        <th>Items</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recentOrdersBody"></tbody>
+                            </table>
+                        </div>
+                        <p class="empty-state" id="recentOrdersEmpty" hidden>No orders yet. Place an order from the site
+                            to see it here.</p>
+                    </div>
+
+                    <div class="card side-card">
+                        <div class="card-header">
+                            <h3>Top Selling Items</h3>
+                        </div>
+                        <div class="popular-list" id="topItemsList"></div>
+                        <p class="empty-state" id="topItemsEmpty" hidden>No sales data yet.</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ===== ORDERS PAGE ===== -->
+            <section class="page" id="page-orders">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>All Orders</h2>
+                        <select id="statusFilter">
+                            <option value="all">All statuses</option>
+                            <option value="New">New</option>
+                            <option value="Preparing">Preparing</option>
+                            <option value="Ready">Ready</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Items</th>
+                                    <th>Total</th>
+                                    <th>Time</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="allOrdersBody"></tbody>
+                        </table>
+                    </div>
+                    <p class="empty-state" id="allOrdersEmpty" hidden>No orders match this filter.</p>
+                </div>
+
+            </section>
+
+            <!-- ===== MENU PAGE ===== -->
+            <section class="page" id="page-menu">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Add New Menu Item</h2>
+                    </div>
+                    <form id="menuForm" class="menu-form">
+                        <div class="form-row">
+                            <div class="field-group">
+                                <label>Item Name</label>
+                                <input type="text" id="itemName" required>
+                            </div>
+                            <div class="field-group">
+                                <label>Price (₹)</label>
+                                <input type="number" id="itemPrice" min="1" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="field-group">
+                                <label>Category</label>
+                                <select id="itemCategory" required>
+                                    <option value="breakfast">Breakfast</option>
+                                    <option value="snacks">Snacks</option>
+                                    <option value="main">Main Course</option>
+                                    <option value="dessert">Desserts</option>
+                                    <option value="hot">Hot Drinks</option>
+                                    <option value="cold">Cold Drinks</option>
+                                </select>
+                            </div>
+                            <div class="field-group">
+                                <label>Tag (optional)</label>
+                                <input type="text" id="itemTag" placeholder="e.g. New, Popular">
+                            </div>
+                        </div>
+                        <div class="field-group">
+                            <label>Description (optional)</label>
+                            <input type="text" id="itemDesc" placeholder="Short description shown on the menu card">
+                        </div>
+                        <div class="field-group">
+                            <label>Emoji icon (shown if no image)</label>
+                            <input type="text" id="itemEmoji" placeholder="🍰" maxlength="2">
+                        </div>
+                        <button type="submit" class="submit-btn">Add to Menu</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Items Added via Admin Panel</h2>
+                    </div>
+                    <p class="hint">Your original 25 menu items (from the HTML) aren't listed here — this only shows
+                        items added through this panel, and they appear live on the site's menu.</p>
+                    <div class="admin-items-list" id="adminItemsList"></div>
+                    <p class="empty-state" id="adminItemsEmpty" hidden>No items added yet.</p>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

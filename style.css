@@ -144,6 +144,8 @@ nav a:hover {
 }
 
 .hero-content {
+    position: absolute;
+    right: 2%;
     max-width: 650px;
     background-color: #20171248;
     backdrop-filter: blur(2px);
@@ -985,7 +987,7 @@ footer {
 
     /* ---- Features ---- */
     .features {
-        grid-template-columns: 1fr;
+        grid-template-rows: 2fr;
         gap: 15px;
         padding: 45px 8%;
     }
