@@ -962,7 +962,7 @@ footer {
 
     /* ---- Hero ---- */
     .hero {
-        min-height: 520px;
+        min-height: 5;
         padding: 60px 6%;
     }
 
@@ -1064,6 +1064,122 @@ footer {
         width: 100%;
         max-width: 100%;
         right: -100%;
+    }
+}
+
+/* ================= TABLET VIEW ================= */
+@media (min-width: 729px) and (max-width: 1024px) {
+
+    /* Header */
+    .header {
+        padding: 0 4%;
+    }
+
+    nav {
+        gap: 16px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .cart-btn {
+        padding: 10px 14px;
+    }
+
+    /* Hero section */
+    .hero {
+        height: 50dvh;
+        padding: 60px 5%;
+    }
+
+    .hero-video {
+        height: 50%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .hero-content {
+        right: 4%;
+        top: 10%;
+        max-width: 60%;
+        padding: 22px;
+    }
+
+    .hero h1 {
+        font-size: clamp(42px, 5.5vw, 60px);
+    }
+
+    /* Features */
+    .features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        padding: 50px 5%;
+    }
+
+    /* Menu */
+    .menu-section {
+        padding: 75px 5%;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .food-card {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .food-image {
+        height: 220px;
+        flex-shrink: 0;
+    }
+
+    .food-info {
+        padding: 18px;
+    }
+
+    .food-bottom {
+        margin-top: 14px;
+    }
+
+    /* About */
+    .about {
+        grid-template-columns: 1fr 1fr;
+        min-height: 420px;
+    }
+
+    .about-content {
+        padding: 40px 30px;
+    }
+
+    .about-content h2,
+    .contact h2 {
+        font-size: 36px;
+    }
+
+    .about-image {
+        font-size: 120px;
+    }
+
+    /* Reviews */
+    .review-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    /* Contact */
+    .contact {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        padding: 70px 5%;
     }
 }
 

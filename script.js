@@ -311,18 +311,35 @@ window.addEventListener("storage", (e) => {
 /* ================= ADMIN AUTH ================= */
 
 const ADMIN_USERNAME = "admin";
-const ADMIN_PASSWORD = "kafechino2026"; // ⚠️ change this to your own
-const AUTH_KEY = "kc_admin_auth";
+const ADMIN_PASSWORD = "kafechino2026";
+
+const AUTH_KEY = "kc_auth_role";
 
 function checkAuthUI() {
-    const isLoggedIn = localStorage.getItem(AUTH_KEY) === "true";
-    document.getElementById("adminLink").style.display = isLoggedIn ? "inline-block" : "none";
-    document.getElementById("loginLink").style.display = isLoggedIn ? "none" : "inline-block";
-    document.getElementById("logoutLink").style.display = isLoggedIn ? "inline-block" : "none";
+    const role = localStorage.getItem(AUTH_KEY);
+    const isLoggedIn = role === "admin" || role === "user";
+    const isAdmin = role === "admin";
+
+    const adminLink = document.getElementById("adminLink");
+    const loginLink = document.getElementById("loginLink");
+    const logoutLink = document.getElementById("logoutLink");
+
+    if (adminLink) {
+        adminLink.style.display = isAdmin ? "inline-block" : "none";
+    }
+
+    if (loginLink) {
+        loginLink.style.display = isLoggedIn ? "none" : "inline-block";
+    }
+
+    if (logoutLink) {
+        logoutLink.style.display = isLoggedIn ? "inline-block" : "none";
+    }
 }
 
 function openLogin(event) {
     event.preventDefault();
+
     document.getElementById("login-overlay").classList.add("show");
     document.getElementById("login-box").classList.add("open");
 }
@@ -330,6 +347,7 @@ function openLogin(event) {
 function closeLogin() {
     document.getElementById("login-overlay").classList.remove("show");
     document.getElementById("login-box").classList.remove("open");
+
     document.getElementById("loginError").hidden = true;
     document.getElementById("loginForm").reset();
 }
@@ -339,26 +357,54 @@ function loginUser(event) {
 
     const username = document.getElementById("loginUsername").value.trim();
     const password = document.getElementById("loginPassword").value;
+    const error = document.getElementById("loginError");
 
-    if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
-        localStorage.setItem(AUTH_KEY, "true");
+    error.hidden = true;
+
+    // Admin login
+    if (
+        username === ADMIN_USERNAME &&
+        password === ADMIN_PASSWORD
+    ) {
+        localStorage.setItem(AUTH_KEY, "admin");
+
         checkAuthUI();
         closeLogin();
-        alert("Welcome back! You now have access to the Admin panel.");
-    } else {
-        document.getElementById("loginError").hidden = false;
+
+        alert("Welcome Admin! Admin panel access enabled.");
+        return;
     }
+
+    // Normal-user demo login
+    // Any non-empty credentials are accepted in this demo.
+    if (username && password) {
+        localStorage.setItem(AUTH_KEY, "user");
+
+        checkAuthUI();
+        closeLogin();
+
+        alert("Login successful! Welcome back.");
+        return;
+    }
+
+    error.textContent = "Please enter your username and password.";
+    error.hidden = false;
 }
 
 function logoutUser(event) {
     event.preventDefault();
+
     localStorage.removeItem(AUTH_KEY);
+
     checkAuthUI();
+
     alert("You have been logged out.");
 }
 
-// 
 document.addEventListener("DOMContentLoaded", () => {
-    renderExtraMenuItems();
+    if (typeof renderExtraMenuItems === "function") {
+        renderExtraMenuItems();
+    }
+
     checkAuthUI();
 });

@@ -263,3 +263,10 @@ window.addEventListener("storage", (e) => {
         renderAll();
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("kc_auth_role") !== "admin") {
+        window.location.replace("index.html");
+    }
+});
